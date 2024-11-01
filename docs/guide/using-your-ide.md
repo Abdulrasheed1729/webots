@@ -125,8 +125,9 @@ Then choose these settings:
     Where "MyController" is the name of a new or already existing controller
     directory, and where "Location" must indicate the "controllers" subdirectory of
     your Webots project directory.
+   Make sure to select the "Place solution and project in the same directory" checkbox.
 
-3. Then you can add a C or C++ source file to your project: Choose either: `Project / Add Existing Item` or `Project / Add New Item / C++ File (.cpp)`.
+4. Then you can add a C or C++ source file to your project: Choose either: `Project / Add Existing Item` or `Project / Add New Item / C++ File (.cpp)`.
 In the second case you can copy the content of one of the C/C++ examples of Webots distribution.
 
     Note that if you copied C code from Webots examples to Visual Studio, it is highly
@@ -143,7 +144,7 @@ In the second case you can copy the content of one of the C/C++ examples of Webo
           identifier 'ir0'
         ...
 
-4. Now we can set up the project configuration for Webots.
+5. Now we can set up the project configuration for Webots.
 Select the `Project / Properties` menu.
 In the `Property Pages`, in the `Configuration Properties`, enter following configuration:
 
@@ -167,7 +168,7 @@ In the `Property Pages`, in the `Configuration Properties`, enter following conf
         Linker > General > Additional Library Directories:
           C:\Program Files\Webots\lib\controller
 
-5. If you want to use the C API, you should skip step 5 and go directly to step 6.
+6. If you want to use the C API, you should skip step 5 and go directly to step 6.
 If you want to use the C++ API follow these instructions:
 
     - In `Property Pages`, in the `Configuration Properties`, add the path to Webots .hpp files:
@@ -183,16 +184,16 @@ If you want to use the C++ API follow these instructions:
     The C++ wrappers are .cpp files that implement the interface between the C++ API and the C API.
     You can proceed like this:
 
-    - In Visual Studio, in the `Solution Explorer`: right-mouse-click on the `Sources Files` folder, then select `Add / New Filter`.
-    This should create a `NewFilter1` subfolder in your `Sources Files` folder.
-    Then select the `NewFilter1` and with the right-mouse-button: choose the `Add / Existing Item...` menu.
-    In the file dialog, go to the "C:\Program Files\Webots\resources\languages\cpp" directory, then select all the .cpp files (but no other file) in that directory and hit the `Add` button.
+    - In Visual Studio, in the `Solution Explorer`: right-mouse-click on the `Sources Files` folder, then select `Add / New Folder`.
+    This should create a `NewFolder1` subfolder in your `Sources Files` folder.
+    Then select the `NewFolder1` and with the right-mouse-button: choose the `Add / Existing Item...` menu.
+    In the file dialog, go to the "C:\Program Files\Webots\src\controller\cpp" directory, then select all the .cpp files (but no other file) in that directory and hit the `Add` button.
     This should add the "Accelerometer.cpp, Camera.cpp, Compass.cpp", etc. source files to your project.
 
-6. Now you should be able to build your controller with the `Build / Build MyController` menu item (or the <kbd>F7</kbd> key).
+7. Now you should be able to build your controller with the `Build / Build MyController` menu item (or the <kbd>F7</kbd> key).
 This should generate the "MyProject\controllers\MyController\MyController.exe" file.
 
-7. Now we can switch to Webots in order to test the .exe controller.
+8. Now we can switch to Webots in order to test the .exe controller.
 Start Webots and verify that your robot is associated with the correct controller: In the `Scene tree`, expand the robot node and check the `controller` field.
 It should be: `controller "MyController"`.
 Otherwise you should change it: hit the `...` (ellipsis) button, this opens a selection dialog.
@@ -201,7 +202,7 @@ Then hit the `Save` button in Webots' main window.
 Finally you can hit the `Run` button to start the simulation.
 At this point the simulation should be using your Visual Studio controller.
 
-8. If you want to debug your controller with Visual Studio you can *attach* the debugger to the running controller process.
+9. If you want to debug your controller with Visual Studio you can *attach* the debugger to the running controller process.
 Proceed like this: In Webots, hit the `Pause` button then the `Reload` button.
 Then, in Visual Studio, use the `Debug / Attach to Process...` menu.
 In the dialog choose the `MyController.exe_webots` process.
